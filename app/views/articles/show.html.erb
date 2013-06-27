@@ -3,4 +3,10 @@
 
 <%= @article.body %><br/>
 
-<%= link_to '<< back to the articles list', articles_path %>
+
+
+<%= link_to '<< back to the articles list', articles_path %> |
+
+<%= link_to 'delete article', article_path(@article), method: :delete, confirm: "really delete the article" %> |
+
+<%= link_to 'edit article', edit_article_path(@article) %>
