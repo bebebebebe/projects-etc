@@ -9,7 +9,12 @@
   <% end %>  
 </p>
 
+<% if @article.image.exists? %>
+  <p><%= image_tag @article.image.url %></p>
+<% end %>
+
 <%= @article.body %>
+
 
 <h3>Comments (<%= @article.comments.count %>)</h3>
 <%= render partial: 'comment', collection: @article.comments %>
