@@ -1,6 +1,14 @@
 <h1><%= @article.title %></h1>
 <br>
 
+<p>
+  Tags: 
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+    <%= ' ' %>
+  <% end %>  
+</p>
+
 <%= @article.body %>
 
 <h3>Comments (<%= @article.comments.count %>)</h3>

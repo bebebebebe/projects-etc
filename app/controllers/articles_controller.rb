@@ -5,20 +5,21 @@ class ArticlesController < ApplicationController
   end
 
   def show
-  @article = Article.find(params[:id])
-  @comment = Comment.new
-  @comment.article_id = @article.id
+    @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
-  @article = Article.new
-
+    @article = Article.new
+    
   end
 
   def create
-  @article = Article.create(params[:article])
-  flash.notice = "article \"#{@article.title}\" successfully created"
-  redirect_to article_path(@article)
+    @article = Article.create(params[:article])
+
+    flash.notice = "article \"#{@article.title}\" successfully created"
+    redirect_to article_path(@article)
   end
 
   def destroy
