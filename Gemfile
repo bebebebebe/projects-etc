@@ -22,6 +22,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'd3-rails'
+
 gem 'paperclip'
 
 gem 'sorcery'

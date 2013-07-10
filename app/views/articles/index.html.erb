@@ -2,8 +2,25 @@
 
 <ul id="articles">
 <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article), class: 'article_title' %></li>
+  <li><%= link_to article.title, article_path(article), class: 'article-title' %></li>
+  <% if article.description != '' %>
+    <div class="description"><%= article.description %></div>
+  <% end %>
+  <% if article.image.exists? %>
+    <p><%= image_tag article.image.url %></p>
+  <% end %>
+
+  <%= truncate(article.body, length: 120, separator: ' ') %> 
+  <% if article.body.length > 120 %>
+    <%= link_to "keep reading", article_path(article), class: 'link' %>
+  <% end %>
+
+<% if article != Article.last %>
+  <br>
+  <hr class="article-division">
 <% end %>
+<% end %>
+
 </ul>
 
-<%= link_to "create a new article", new_article_path, class: 'new_article' %>
+<%= link_to "create a new article", new_article_path, class: 'link' %>

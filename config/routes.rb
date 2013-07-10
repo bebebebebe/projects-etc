@@ -13,7 +13,11 @@ Blogger::Application.routes.draw do
   match 'login'  => 'author_sessions#new'
   match 'logout' => 'author_sessions#destroy'
 
-  root to: 'articles#index'
+  match 'about',   to: 'static_pages#about'
+
+  root to: 'static_pages#home'
+
+#  root to: 'articles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
