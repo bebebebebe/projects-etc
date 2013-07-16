@@ -1,6 +1,7 @@
-$(document).ready(function(){
-  $('.fadeaway').fadeOut(1000);
 
+
+$(document).ready(function(){
+  $('.flash').delay(2500).fadeOut(1000);
 
   $('nav').hide()
   $('nav').delay(2000).appendTo('header').fadeIn(1000);

@@ -1,26 +1,36 @@
-<h1>All Articles</h1>
-
 <ul id="articles">
 <% @articles.each do |article| %>
-  <li><%= link_to article.title, article_path(article), class: 'article-title' %></li>
+  <li><%= link_to article.title, article_path(article), class: 'article-title' %>
+  
   <% if article.description != '' %>
     <div class="description"><%= article.description %></div>
   <% end %>
+
+
+<div class='text'>
   <% if article.image.exists? %>
-    <p><%= image_tag article.image.url %></p>
+    <p class="image"><%= image_tag article.image.url(:original) %></p>
   <% end %>
 
-  <%= truncate(article.body, length: 120, separator: ' ') %> 
-  <% if article.body.length > 120 %>
+  <% if article.body.length > 700 %>
+    <%= markdown(truncate(article.body, length: 500, separator: ' ')).html_safe %>
     <%= link_to "keep reading", article_path(article), class: 'link' %>
-  <% end %>
+  <% else %>
+    <%= markdown(article.body).html_safe %>
+  <% end %> 
+</div>
 
-<% if article != Article.last %>
-  <br>
-  <hr class="article-division">
+</li>
+
+  <% if article != Article.last %>
+    <br><br>
+  <% end %>
 <% end %>
-<% end %>
+
+
 
 </ul>
 
-<%= link_to "create a new article", new_article_path, class: 'link' %>
+<% if current_user %>
+  <%= link_to "create a new article", new_article_path, class: 'link' %>
+<% end %>

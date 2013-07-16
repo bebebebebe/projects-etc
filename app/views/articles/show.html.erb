@@ -1,29 +1,33 @@
-<h1><%= @article.title %></h1>
+<div class='article-title'><%= @article.title %></div>
+<div class='description'><%= @article.description %></div>
 <br>
 
-<p>
-  Tags: 
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-    <%= ' ' %>
-  <% end %>  
-</p>
-
 <% if @article.image.exists? %>
-  <p><%= image_tag @article.image.url %></p>
+  <p><%= image_tag @article.image.url(:original) %></p>
 <% end %>
 
-<%= @article.body %>
+<section class='text'>
+  <%= markdown(@article.body).html_safe %>
+</section>
 
+<% if @article.tags.size > 0 %>
+  <p>
+    Tags: 
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+      <%= ' ' %>
+    <% end %>  
+  </p>
+<% end %>
 
 <h3>Comments (<%= @article.comments.count %>)</h3>
 <%= render partial: 'comment', collection: @article.comments %>
 
 <%= render partial: 'comments/form' %>
 
-<%= link_to '<< back to the articles list', articles_path %> |
 
+<% if current_user %>
 <%= link_to 'delete article', article_path(@article), method: :delete, confirm: "really delete the article" %> |
 
 <%= link_to 'edit article', edit_article_path(@article) %> 
-
+<% end %>

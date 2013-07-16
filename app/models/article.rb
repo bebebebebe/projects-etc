@@ -1,10 +1,12 @@
 class Article < ActiveRecord::Base
   attr_accessible :title, :body, :tag_list, :image, :description
 
+  default_scope order('created_at DESC')
+
   has_many :comments
   has_many :taggings
   has_many :tags, through: :taggings
-  has_attached_file :image
+  has_attached_file :image, :styles => { :medium => "120x120>" }
 
 
   def tag_list
