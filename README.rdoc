@@ -1,3 +1,5 @@
 == Projects & Blog
 
 This is a Rails site I might use to write about web and programming projects.
+
+The blog supports markdown and syntax highlighting for code blocks.
