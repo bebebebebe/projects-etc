@@ -1,9 +1,37 @@
+/* mixins, variables */
+
+$text: #737373;
+
+/* general */
+
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
 body {
+  font-family: Helvetica, Times, 'Times New Roman', serif;
+  color: $text;
+}
+
+.intro {
   padding-top: 33%;
   padding-left: 14%;
   padding-right: 16%;
-  font-family: Helvetica, Times, 'Times New Roman', serif;
-  color: #737373;
+}
+
+.info {
+  padding-top: 15%;
+  padding-left: 14%;
+  padding-right: 16%;  
+}
+
+.projects {
+  padding-top: 15%;
+  padding-left: 14%;
+  padding-right: 14%;
+
 }
 
 .text {
@@ -22,7 +50,7 @@ nav {
     position: fixed;
     top: 2%;
     left: 2%;
-
+   
   }
 }
 
@@ -43,7 +71,6 @@ nav {
   list-style: none;
   margin: 0px;
   text-decoration: none;
-  
 }
 
 .link {
@@ -55,7 +82,7 @@ nav {
     color: #8c8c8c;
     padding: 0;
     margin: 0;
-    }
+}
 
 .flash {
   color: red;
@@ -66,4 +93,46 @@ nav {
 
 pre {
   line-height: 1;
+}
+
+/* projects: diffs */
+
+.add {
+  color: darken($text, 20%);
+}
+
+.del {
+  color: lighten($text, 20%);
+}
+
+#texts {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 300px;
+
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 45%;
+  height: 45%;
+}
+
+#result {
+  float: right;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 45%;
+  height: 45%;
+}
+
+.result-info {
+  color: #999999;
+  font-style: italic;
+  
+
 }

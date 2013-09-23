@@ -1,3 +1,5 @@
+<body class="info">
+
 <div class='article-title'><%= @article.title %></div>
 <div class='description'><%= @article.description %></div>
 <br>
@@ -21,9 +23,13 @@
 <% end %>
 
 <h3>Comments (<%= @article.comments.count %>)</h3>
-<%= render partial: 'comment', collection: @article.comments %>
+
+  <%= render partial: 'comment', collection: @article.comments %>
+
 
 <%= render partial: 'comments/form' %>
+
+
 
 
 <% if current_user %>
@@ -31,3 +37,5 @@
 
 <%= link_to 'edit article', edit_article_path(@article) %> 
 <% end %>
+
+</body>

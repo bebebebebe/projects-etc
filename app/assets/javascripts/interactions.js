@@ -6,13 +6,15 @@ $(document).ready(function(){
   $('nav').hide()
   $('nav').delay(2000).appendTo('header').fadeIn(1000);
 
-
-  //d3.select("body").append("span")
-  //  .text("Hello, world! This is appended with d3.js");
+  var button = $('#btn');
+  var output = document.getElementById("result");
+  button.on('click', function(){
+    var original = $('#original').val();
+    var revised = $('#revised').val();
+    w = new WebDiff(original, revised);
+    output.innerHTML="<div class='result-info'>Implied edits: <br/><br/></div>" + w.compare();
+  })
 
 });
-
-
-
 
   

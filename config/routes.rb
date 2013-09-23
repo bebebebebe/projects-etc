@@ -14,6 +14,7 @@ Blogger::Application.routes.draw do
   match 'logout' => 'author_sessions#destroy'
 
   match 'about',   to: 'static_pages#about'
+  match 'diffs', to: 'projects#diffs'
 
   root to: 'articles#index'
 
