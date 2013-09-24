@@ -6,12 +6,12 @@ Blogger::Application.routes.draw do
 
   resources :tags, only: [:show, :index]
 
-  resources :authors
+  #resources :authors
 
-  resources :author_sessions, only: [ :new, :create, :destroy ]
+  #resources :author_sessions, only: [ :new, :create, :destroy ]
 
-  match 'login'  => 'author_sessions#new'
-  match 'logout' => 'author_sessions#destroy'
+  #match 'login'  => 'author_sessions#new'
+  #match 'logout' => 'author_sessions#destroy'
 
   match 'about',   to: 'static_pages#about'
   match 'diffs', to: 'projects#diffs'
