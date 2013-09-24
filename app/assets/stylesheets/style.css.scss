@@ -131,8 +131,8 @@ textarea {
 }
 
 .result-info {
-  color: #999999;
-  font-style: italic;
+  //color: #999999;
+  color: black;
 }
 
 
@@ -146,9 +146,20 @@ textarea {
 }
 
 #btn:hover {
-    border: none;
-    color: $text;
-    //background-color: #999999;
-    //box-shadow: 0px 0px 1px #777;
+  border: none;
+  color: $text;
+}
 
+#btn:focus {
+  outline: none;
+  color: $text;
+}
+
+#original, #revised {
+  border: 1px solid lighten($text, 30%);
+  resize: none;
+  &:focus {
+    border: 1px solid $text;
+    outline: none;
+  }
 }

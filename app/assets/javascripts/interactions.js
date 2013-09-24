@@ -12,7 +12,7 @@ $(document).ready(function(){
     var original = $('#original').val();
     var revised = $('#revised').val();
     w = new WebDiff(original, revised);
-    output.innerHTML="<div class='result-info'>Implied edits: <br/><br/></div>" + w.compare();
+    output.innerHTML="<div class='result-info'>Implied edits: <br/><br/><br/></div>" + w.compare();
   })
 
 });
