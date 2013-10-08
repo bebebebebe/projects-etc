@@ -163,3 +163,16 @@ textarea {
     outline: none;
   }
 }
+
+.code-link {
+  text-decoration: none;
+  color: lighten($text, 20%);
+  font-size: small;
+  text-align: right;
+  display: inline-block;
+  font-family: monospace;
+  float: right;
+  &:hover {
+    color: $text;
+  }
+}
