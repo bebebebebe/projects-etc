@@ -15,6 +15,7 @@ Blogger::Application.routes.draw do
 
   match 'about',   to: 'static_pages#about'
   match 'diffs', to: 'projects#diffs'
+  match 'memory', to: 'projects#memory'
 
   root to: 'articles#index'
 

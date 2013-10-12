@@ -95,6 +95,45 @@ pre {
   line-height: 1;
 }
 
+
+// Projects: General
+
+.project-btn {
+  background-color: white;
+    color: lighten($text, 20%);
+    font-size: 20px;
+    text-decoration: none;
+    cursor: poiner;
+     border:none;
+  &:hover {
+  border: none;
+  color: $text;
+}
+  &:focus {
+    outline: none;
+  color: $text;
+  }
+}
+
+
+
+.code-link {
+  text-decoration: none;
+  color: lighten($text, 20%);
+  font-size: small;
+  text-align: right;
+  display: inline-block;
+  font-family: monospace;
+  position: absolute;
+  right: 100px;
+  bottom: 120px;
+  display: inline-block;
+  &:hover {
+    color: $text;
+  }
+}
+
+
 /* projects: diffs */
 
 .add {
@@ -164,15 +203,52 @@ textarea {
   }
 }
 
-.code-link {
-  text-decoration: none;
-  color: lighten($text, 20%);
-  font-size: small;
-  text-align: right;
-  display: inline-block;
-  font-family: monospace;
-  float: right;
-  &:hover {
-    color: $text;
-  }
+
+
+
+
+
+// Project: Memory Game
+
+
+
+#board {
+  width: 350px;
+
 }
+
+.card {
+  background: gray;
+  border: 2px solid white;
+  float: left;
+}
+
+#reset {
+  color: gray;
+  font-family: helvetica;
+  font-style: italic;
+  font-size: small;
+  display: inline-block;
+  
+}
+
+#reset:hover {
+  color: black;
+}
+
+#options {
+  
+  position: absolute;
+  right: 100px;
+  display: inline-block;
+}
+
+input:focus, textarea:focus, button:focus {
+    outline: none;
+}
+
+#pickNumber {
+  width: 50px;
+}
+
+
