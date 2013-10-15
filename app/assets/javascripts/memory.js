@@ -5,11 +5,21 @@ function shuffle(o){ // from http://jsfromhell.com/array/shuffle
     return o;
 }
 
+function pairs(n) { // return array of pairs of integers between 0 and n
+  result = [];
+  for (var i=0; i<=n; i++) {
+    for (var j=0; j<=n; j++) {
+      result.push([i,j]);
+    }
+  }
+  return result;
+}
+
 function Board(numCardTypes) {
   this.numCards = 2 * numCardTypes;
   this.values = values();
+  this.patterns = patterns(numCardTypes);
 
-    
   this.match = function(i,j) {
     return this.values[i] === this.values[j];
   }
@@ -22,16 +32,15 @@ function Board(numCardTypes) {
     return shuffle(values);
   }
 
-
+  // n is a positive integer <= 81
+  function patterns(n) { // return exactly n pairs of integers between 0 and 8
+    return shuffle(pairs(8));
+  }
 
 }
 
 function Game(board) {
   var canvasBoard = new CanvasBoard(board);
-
-  // function canvasCard(cardId) {
-  //   return canvasBoard.cards[cardId];
-  // }
 
   var matchedCards = [];
   var cardId1 = -1;
@@ -95,7 +104,7 @@ function CanvasBoard(board) {
     removal: function(id) {
       var setTimeout = window.setTimeout(function() {
         cards[id].pageColor();
-        console.log('removal called');
+        
       }, 500);
     }
   };
@@ -123,13 +132,11 @@ function Card(i, board) {
 
   var ctx = canvas.getContext('2d');
   function drawCircle(l, color) {
-    
     ctx.beginPath();
     ctx.arc(l/2, l/2, l/3, 0, Math.PI*2, true);
     ctx.fillStyle = color;
     ctx.fill();
   }
-
 
   $(canvas).click(function(){
     game.peek(i);
@@ -137,25 +144,23 @@ function Card(i, board) {
 
   this.canvas = canvas;
 
-
-
-
   this.frontColor = function() {
     var value = board.values[this.id];
-    var color = colors[value];
-    $('#'+this.id).css('background', color);
-    //drawCircle(cardLength, 'gray');
+    var pattern = board.patterns[value];
+    var squareColor = colors[pattern[0]];
+    var circleColor = colors[pattern[1]];
+    $('#'+this.id).css('background', squareColor);
+    drawCircle(cardLength, circleColor);
   }
 
   this.backColor = function() {
     $('#'+this.id).css('background', 'gray');
-    //ctx.clearRect(0,0,cardLength,cardLength);
+    ctx.clearRect(0,0,cardLength,cardLength);
   }
 
   this.pageColor = function() {
     $('#'+this.id).css('background', 'white');
-    //ctx.clearRect(0,0,cardLength,cardLength);
-    console.log('pageColor called');
+    ctx.clearRect(0,0,cardLength,cardLength);
   }
 
   var colors = {
