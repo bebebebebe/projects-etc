@@ -1,5 +1,6 @@
 ;(function(exports) {
 
+
 function shuffle(o){ // from http://jsfromhell.com/array/shuffle
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
     return o;
@@ -189,5 +190,7 @@ exports.reset = function(n) {
     $('#reset').css('display', 'inline-block');
    }, 0);
 }
+
+
 
 }(this));

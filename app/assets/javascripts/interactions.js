@@ -16,14 +16,15 @@ $(document).ready(function(){
     output.innerHTML="<div class='result-info'>Implied edits: <br/><br/><br/></div>" + w.compare();
   })
 
+
 // memory game
-  var num = 8; // number of card types
-  play(num);
-  $('#reset').on('click', function(){reset(num)})
-  $('#memory-btn').on('click', function(){
-    num = $('#pickNumber').val();
-    reset(num);
-  })
+  //var num = 4; // number of card types
+  //play(num);
+  //$('#reset').on('click', function(){reset(num)})
+  //$('#memory-btn').on('click', function(){
+  //  num = $('#pickNumber').val();
+  //  reset(num);
+  //})
 
 });
 
